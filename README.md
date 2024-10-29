@@ -89,6 +89,15 @@ Go to that test and switch the true to false and this test will fail. Return it 
 Isolating tests helps to ensure we are not receiving false positives.
 
 ___
+## Test output for Basic Examples
+The image below is a small section of what the test output should be. With the structure of this project you can feel free to add more to your own local environment to work on tests. 
+This helps with what is needed when ensuring tests are passing before pushing to a repository in an enterprise project. 
+
+![basic-examples-test-output](https://github.com/user-attachments/assets/d4e90c22-f58b-436f-95e0-283a4ab54c37)
+
+
+
+___
 
 ## Examples of Basic Methods are as follows
 - ReverseString: Reverses a given string.
