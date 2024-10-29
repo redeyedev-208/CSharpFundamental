@@ -109,4 +109,104 @@ public class BasicExamplesTests
         Console.WriteLine("Test passed: ArgumentException was thrown as expected.");
         Console.WriteLine($"Exception message: {exception.Message}");
     }
+
+    [Fact]
+    public void SumArray_ReturnsCorrectSum()
+    {
+        // Arrange
+        int[] input = { 1, 2, 3, 4, 5 };
+        int expected = 15;
+
+        // Informative console output
+        Console.WriteLine("=== Testing SumArray ===");
+        Console.WriteLine($"Input Array: {string.Join(", ", input)} | Expected Sum: {expected}");
+
+        // Act
+        int result = BasicExamples.SumArray(input);
+
+        // Assert
+        Assert.Equal(expected, result);
+        Console.WriteLine($"Actual Sum: {result}");
+        Console.WriteLine("Test passed: The output matches the expected value.");
+    }
+
+    [Fact]
+    public void SumArray_ThrowsArgumentNullException_WhenInputIsNull()
+    {
+        // Informative console output
+        Console.WriteLine("=== Testing SumArray for null input ===");
+
+        // Act & Assert
+        var exception = Assert.Throws<ArgumentNullException>(() => BasicExamples.SumArray(null));
+        Console.WriteLine("Test passed: ArgumentNullException was thrown as expected.");
+        Console.WriteLine($"Exception message: {exception.Message}");
+    }
+
+    [Fact]
+    public void SumArray_ReturnsZero_WhenArrayIsEmpty()
+    {
+        // Arrange
+        int[] input = [];
+        int expected = 0;
+
+        // Informative console output
+        Console.WriteLine("=== Testing SumArray with an empty array ===");
+        Console.WriteLine($"Input Array: {string.Join(", ", input)} | Expected Sum: {expected}");
+
+        // Act
+        int result = BasicExamples.SumArray(input);
+
+        // Assert
+        Assert.Equal(expected, result);
+        Console.WriteLine($"Actual Sum: {result}");
+        Console.WriteLine("Test passed: The output matches the expected value.");
+    }
+
+    [Fact]
+    public void FindLargest_ReturnsCorrectLargestValue()
+    {
+        // Arrange
+        int[] input = { 3, 1, 4, 1, 5, 9, 2, 6, 5 };
+        int expected = 9;
+
+        // Informative console output
+        Console.WriteLine("=== Testing FindLargest ===");
+        Console.WriteLine($"Input Array: {string.Join(", ", input)} | Expected Largest: {expected}");
+
+        // Act
+        int result = BasicExamples.FindLargest(input);
+
+        // Assert
+        Assert.Equal(expected, result);
+        Console.WriteLine($"Actual Largest: {result}");
+        Console.WriteLine("Test passed: The output matches the expected value.");
+    }
+
+    [Fact]
+    public void FindLargest_ThrowsArgumentNullException_WhenInputIsNull()
+    {
+        // Informative console output
+        Console.WriteLine("=== Testing FindLargest for null input ===");
+
+        // Act & Assert
+        var exception = Assert.Throws<ArgumentNullException>(() => BasicExamples.FindLargest(null));
+        Console.WriteLine("Test passed: ArgumentNullException was thrown as expected.");
+        Console.WriteLine($"Exception message: {exception.Message}");
+    }
+
+    [Fact]
+    public void FindLargest_ThrowsArgumentNullException_WhenArrayIsEmpty()
+    {
+        // Arrange
+        int[] input = { };
+
+        // Informative console output
+        Console.WriteLine("=== Testing FindLargest with an empty array ===");
+        Console.WriteLine($"Input Array: {string.Join(", ", input)}");
+
+        // Act & Assert
+        var exception = Assert.Throws<ArgumentNullException>(() => BasicExamples.FindLargest(input));
+        Console.WriteLine("Test passed: ArgumentNullException was thrown as expected.");
+        Console.WriteLine($"Exception message: {exception.Message}");
+    }
 }

@@ -54,15 +54,32 @@ public class BasicExamples
   }
 
   // Method to find the sum of an array
-  public static int SumArray(int[] numbers)
+  public static int SumArray(int[]? numbers)
   {
-    return numbers.Sum();
+
+    ArgumentNullException.ThrowIfNull(numbers);
+
+    Console.WriteLine("=== Sum Array ===");
+    Console.WriteLine($"Input Array: {string.Join(", ", numbers)}");
+
+    int sum = numbers.Sum();
+    Console.WriteLine($"Sum: {sum}");
+    return sum;
   }
 
   // Method to find the largest int or number
-  public static int FindLargest(int[] numbers)
+  public static int FindLargest(int[]? numbers)
   {
-    return numbers.Max();
+
+    if (numbers == null || numbers.Length == 0)
+      throw new ArgumentNullException(nameof(numbers), "The array cannot be null or empty.");
+
+    Console.WriteLine("=== Find Largest ===");
+    Console.WriteLine($"Input Array: {string.Join(", ", numbers)}");
+
+    int largest = numbers.Max();
+    Console.WriteLine($"Largest: {largest}");
+    return largest;
   }
 
   // Method to find the count of vowels in a string
