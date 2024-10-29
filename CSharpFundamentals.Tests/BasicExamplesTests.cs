@@ -500,4 +500,85 @@ public class BasicExamplesTests
         Assert.Equal(expected, actual, precision: 5);
         Console.WriteLine("Test passed: Zero to the power of zero conventionally returns one.");
     }
+
+    [Fact]
+    public void IsAllDigits_AllDigits_ReturnsTrue()
+    {
+        // Arrange
+        string input = "1234567890";
+        bool expected = true;
+
+        // Informative console output
+        Console.WriteLine("=== Testing IsAllDigits with a string containing only digits ===");
+        Console.WriteLine($"Input String: \"{input}\"");
+        Console.WriteLine($"Expected Result: {expected}");
+
+        // Act
+        bool actual = BasicExamples.IsAllDigits(input);
+
+        // Assert
+        Assert.Equal(expected, actual);
+        Console.WriteLine("Test passed: String contains only digits as expected.");
+        Console.WriteLine($"Actual Result: {actual}");
+    }
+
+    [Fact]
+    public void IsAllDigits_WithNonDigitCharacters_ReturnsFalse()
+    {
+        // Arrange
+        string input = "123a456";
+        bool expected = false;
+
+        // Informative console output
+        Console.WriteLine("=== Testing IsAllDigits with a string containing non-digit characters ===");
+        Console.WriteLine($"Input String: \"{input}\"");
+        Console.WriteLine($"Expected Result: {expected}");
+
+        // Act
+        bool actual = BasicExamples.IsAllDigits(input);
+
+        // Assert
+        Assert.Equal(expected, actual);
+        Console.WriteLine("Test passed: String contains non-digit characters, result is false.");
+    }
+
+    [Fact]
+    public void IsAllDigits_EmptyString_ReturnsFalse()
+    {
+        // Arrange
+        string input = "";
+        bool expected = false;
+
+        // Informative console output
+        Console.WriteLine("=== Testing IsAllDigits with an empty string ===");
+        Console.WriteLine("Input String is empty.");
+        Console.WriteLine($"Expected Result: {expected}");
+
+        // Act
+        bool actual = BasicExamples.IsAllDigits(input);
+
+        // Assert
+        Assert.Equal(expected, actual);
+        Console.WriteLine("Test passed: Empty string returns false as expected.");
+    }
+
+    [Fact]
+    public void IsAllDigits_MixedCharacters_ReturnsFalse()
+    {
+        // Arrange
+        string input = "abc123xyz";
+        bool expected = false;
+
+        // Informative console output
+        Console.WriteLine("=== Testing IsAllDigits with a string containing mixed characters ===");
+        Console.WriteLine($"Input String: \"{input}\"");
+        Console.WriteLine($"Expected Result: {expected}");
+
+        // Act
+        bool actual = BasicExamples.IsAllDigits(input);
+
+        // Assert
+        Assert.Equal(expected, actual);
+        Console.WriteLine("Test passed: Mixed characters return false as expected.");
+    }
 }
