@@ -99,3 +99,4 @@
 /Users/gilaguilar/dotnet-refreshers/CSharpFundamentals/CSharpFundamentals.Tests/obj/Debug/net8.0/CSharpFundamentals.Tests.pdb
 /Users/gilaguilar/dotnet-refreshers/CSharpFundamentals/CSharpFundamentals.Tests/obj/Debug/net8.0/CSharpFundamentals.Tests.genruntimeconfig.cache
 /Users/gilaguilar/dotnet-refreshers/CSharpFundamentals/CSharpFundamentals.Tests/obj/Debug/net8.0/ref/CSharpFundamentals.Tests.dll
+/Users/gilaguilar/dotnet-refreshers/CSharpFundamentals/CSharpFundamentals.Tests/obj/Debug/net8.0/CSharpFundamentals.Tests.sourcelink.json

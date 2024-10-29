@@ -9,3 +9,4 @@
 /Users/gilaguilar/dotnet-refreshers/CSharpFundamentals/CSharpFundamentals/obj/Debug/net8.0/refint/CSharpFundamentals.dll
 /Users/gilaguilar/dotnet-refreshers/CSharpFundamentals/CSharpFundamentals/obj/Debug/net8.0/CSharpFundamentals.pdb
 /Users/gilaguilar/dotnet-refreshers/CSharpFundamentals/CSharpFundamentals/obj/Debug/net8.0/ref/CSharpFundamentals.dll
+/Users/gilaguilar/dotnet-refreshers/CSharpFundamentals/CSharpFundamentals/obj/Debug/net8.0/CSharpFundamentals.sourcelink.json
