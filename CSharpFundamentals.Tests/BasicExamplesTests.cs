@@ -372,4 +372,132 @@ public class BasicExamplesTests
         Assert.Equal(expectedOutput, actualOutput);
         Console.WriteLine("Test passed: All duplicates removed, only one instance remains.");
     }
+
+    [Fact]
+    public void Power_PositiveExponent_ReturnsCorrectResult()
+    {
+        // Arrange
+        double baseNum = 2;
+        int exponent = 3;
+        double expected = 8;
+
+        // Informative console output
+        Console.WriteLine("=== Testing Power with a positive exponent ===");
+        Console.WriteLine($"Base: {baseNum}, Exponent: {exponent}");
+        Console.WriteLine($"Expected Result: {expected}");
+
+        // Act
+        double actual = BasicExamples.Power(baseNum, exponent);
+
+        // Assert
+        Assert.Equal(expected, actual, precision: 5);
+        Console.WriteLine("Test passed: Power calculated correctly.");
+        Console.WriteLine($"Actual Result: {actual}");
+    }
+
+    [Fact]
+    public void Power_ZeroExponent_ReturnsOne()
+    {
+        // Arrange
+        double baseNum = 5;
+        int exponent = 0;
+        double expected = 1;
+
+        // Informative console output
+        Console.WriteLine("=== Testing Power with zero exponent ===");
+        Console.WriteLine($"Base: {baseNum}, Exponent: {exponent}");
+        Console.WriteLine($"Expected Result: {expected}");
+
+        // Act
+        double actual = BasicExamples.Power(baseNum, exponent);
+
+        // Assert
+        Assert.Equal(expected, actual, precision: 5);
+        Console.WriteLine("Test passed: Any number to the power of zero is 1.");
+    }
+
+    [Fact]
+    public void Power_NegativeExponent_ReturnsCorrectReciprocal()
+    {
+        // Arrange
+        double baseNum = 2;
+        int exponent = -2;
+        double expected = 0.25;
+
+        // Informative console output
+        Console.WriteLine("=== Testing Power with a negative exponent ===");
+        Console.WriteLine($"Base: {baseNum}, Exponent: {exponent}");
+        Console.WriteLine($"Expected Result: {expected}");
+
+        // Act
+        double actual = BasicExamples.Power(baseNum, exponent);
+
+        // Assert
+        Assert.Equal(expected, actual, precision: 5);
+        Console.WriteLine("Test passed: Negative exponent calculated correctly.");
+        Console.WriteLine($"Actual Result: {actual}");
+    }
+
+    [Fact]
+    public void Power_ExponentOfOne_ReturnsBase()
+    {
+        // Arrange
+        double baseNum = 9;
+        int exponent = 1;
+        double expected = baseNum;
+
+        // Informative console output
+        Console.WriteLine("=== Testing Power with exponent of one ===");
+        Console.WriteLine($"Base: {baseNum}, Exponent: {exponent}");
+        Console.WriteLine($"Expected Result: {expected}");
+
+        // Act
+        double actual = BasicExamples.Power(baseNum, exponent);
+
+        // Assert
+        Assert.Equal(expected, actual, precision: 5);
+        Console.WriteLine("Test passed: Number to the power of one is the number itself.");
+    }
+
+    [Fact]
+    public void Power_BaseZeroPositiveExponent_ReturnsZero()
+    {
+        // Arrange
+        double baseNum = 0;
+        int exponent = 5;
+        double expected = 0;
+
+        // Informative console output
+        Console.WriteLine("=== Testing Power with base zero and positive exponent ===");
+        Console.WriteLine($"Base: {baseNum}, Exponent: {exponent}");
+        Console.WriteLine($"Expected Result: {expected}");
+
+        // Act
+        double actual = BasicExamples.Power(baseNum, exponent);
+
+        // Assert
+        Assert.Equal(expected, actual, precision: 5);
+        Console.WriteLine("Test passed: Zero raised to any positive power is zero.");
+    }
+
+    [Fact]
+    public void Power_BaseZeroExponentZero_ReturnsOne()
+    {
+        // Arrange
+        double baseNum = 0;
+        int exponent = 0;
+        double expected = 1;  // By convention in most systems
+
+        // Informative console output
+        Console.WriteLine("=== Testing Power with both base and exponent zero ===");
+        Console.WriteLine($"Base: {baseNum}, Exponent: {exponent}");
+        Console.WriteLine($"Expected Result: {expected}");
+
+        // Act
+        double actual = BasicExamples.Power(baseNum, exponent);
+
+        // Assert
+        Assert.Equal(expected, actual, precision: 5);
+        Console.WriteLine("Test passed: Zero to the power of zero conventionally returns one.");
+    }
 }
