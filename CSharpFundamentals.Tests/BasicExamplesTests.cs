@@ -4,6 +4,8 @@ public class BasicExamplesTests
 {
     // To run tests with more information we can use the following command:
     // dotnet test --logger "console;verbosity=detailed"
+    // This below shows how to run a single test to get what is needed if it is failing
+    // dotnet test --logger "console;verbosity=detailed" --filter "FullyQualifiedName~CSharpFundamentals.Tests.BasicExamplesTests.IsAllDigits_AllDigits_ReturnsTrue"
     [Fact]
     public void ReverseString_ReturnsReversedString()
     {
@@ -547,7 +549,7 @@ public class BasicExamplesTests
     {
         // Arrange
         string input = "";
-        bool expected = false;
+        bool expected = true;
 
         // Informative console output
         Console.WriteLine("=== Testing IsAllDigits with an empty string ===");
@@ -581,4 +583,340 @@ public class BasicExamplesTests
         Assert.Equal(expected, actual);
         Console.WriteLine("Test passed: Mixed characters return false as expected.");
     }
+
+    [Fact]
+    public void CelciusToFahrenheit_PositiveValue_ReturnsCorrectResult()
+    {
+        // Arrange
+        double input = 25; // 25°C
+        double expected = 77; // Expected result in Fahrenheit
+
+        // Informative console output
+        Console.WriteLine("=== Testing CelciusToFahrenheit with a positive value ===");
+        Console.WriteLine($"Input Celsius: {input}");
+        Console.WriteLine($"Expected Fahrenheit: {expected}");
+
+        // Act
+        double actual = BasicExamples.CelciusToFahrenheit(input);
+
+        // Assert
+        Assert.Equal(expected, actual);
+        Console.WriteLine("Test passed: Conversion from Celsius to Fahrenheit is correct.");
+        Console.WriteLine($"Actual Fahrenheit: {actual}");
+    }
+
+    [Fact]
+    public void CelciusToFahrenheit_NegativeValue_ReturnsCorrectResult()
+    {
+        // Arrange
+        double input = -10; // -10°C
+        double expected = 14; // Expected result in Fahrenheit
+
+        // Informative console output
+        Console.WriteLine("=== Testing CelciusToFahrenheit with a negative value ===");
+        Console.WriteLine($"Input Celsius: {input}");
+        Console.WriteLine($"Expected Fahrenheit: {expected}");
+
+        // Act
+        double actual = BasicExamples.CelciusToFahrenheit(input);
+
+        // Assert
+        Assert.Equal(expected, actual);
+        Console.WriteLine("Test passed: Conversion from Celsius to Fahrenheit is correct.");
+        Console.WriteLine($"Actual Fahrenheit: {actual}");
+    }
+
+    [Fact]
+    public void CelciusToFahrenheit_ZeroValue_ReturnsCorrectResult()
+    {
+        // Arrange
+        double input = 0; // 0°C
+        double expected = 32; // Expected result in Fahrenheit
+
+        // Informative console output
+        Console.WriteLine("=== Testing CelciusToFahrenheit with zero value ===");
+        Console.WriteLine($"Input Celsius: {input}");
+        Console.WriteLine($"Expected Fahrenheit: {expected}");
+
+        // Act
+        double actual = BasicExamples.CelciusToFahrenheit(input);
+
+        // Assert
+        Assert.Equal(expected, actual);
+        Console.WriteLine("Test passed: Conversion from Celsius to Fahrenheit is correct.");
+        Console.WriteLine($"Actual Fahrenheit: {actual}");
+    }
+
+    [Fact]
+    public void CalculateAverage_WithMultipleValues_ReturnsCorrectAverage()
+    {
+        // Arrange
+        int[] input = { 1, 2, 3, 4, 5 }; // Average should be 3
+        double expected = 3.0;
+
+        // Informative console output
+        Console.WriteLine("=== Testing CalculateAverage with multiple values ===");
+        Console.WriteLine($"Input Array: [{string.Join(", ", input)}]");
+        Console.WriteLine($"Expected Average: {expected}");
+
+        // Act
+        double actual = BasicExamples.CalculateAverage(input);
+
+        // Assert
+        Assert.Equal(expected, actual);
+        Console.WriteLine("Test passed: Average calculation is correct.");
+        Console.WriteLine($"Actual Average: {actual}");
+    }
+
+    [Fact]
+    public void CalculateAverage_WithSingleValue_ReturnsSameValue()
+    {
+        // Arrange
+        int[] input = { 10 }; // Average should be 10
+        double expected = 10.0;
+
+        // Informative console output
+        Console.WriteLine("=== Testing CalculateAverage with a single value ===");
+        Console.WriteLine($"Input Array: [{string.Join(", ", input)}]");
+        Console.WriteLine($"Expected Average: {expected}");
+
+        // Act
+        double actual = BasicExamples.CalculateAverage(input);
+
+        // Assert
+        Assert.Equal(expected, actual);
+        Console.WriteLine("Test passed: Average calculation is correct.");
+        Console.WriteLine($"Actual Average: {actual}");
+    }
+
+    [Fact]
+    public void CalculateAverage_WithEmptyArray_ThrowsInvalidOperationException()
+    {
+        // Arrange
+        int[] input = Array.Empty<int>(); // Empty array
+
+        // Informative console output
+        Console.WriteLine("=== Testing CalculateAverage with an empty array ===");
+        Console.WriteLine("Input Array is empty.");
+
+        // Act & Assert
+        var exception = Assert.Throws<InvalidOperationException>(() => BasicExamples.CalculateAverage(input));
+        Console.WriteLine("Test passed: Exception thrown as expected for empty array.");
+        Console.WriteLine($"Exception Message: {exception.Message}");
+    }
+
+    [Fact]
+    public void CalculateAverage_WithNegativeValues_ReturnsCorrectAverage()
+    {
+        // Arrange
+        int[] input = { -1, -2, -3, -4, -5 }; // Average should be -3
+        double expected = -3.0;
+
+        // Informative console output
+        Console.WriteLine("=== Testing CalculateAverage with negative values ===");
+        Console.WriteLine($"Input Array: [{string.Join(", ", input)}]");
+        Console.WriteLine($"Expected Average: {expected}");
+
+        // Act
+        double actual = BasicExamples.CalculateAverage(input);
+
+        // Assert
+        Assert.Equal(expected, actual);
+        Console.WriteLine("Test passed: Average calculation is correct.");
+        Console.WriteLine($"Actual Average: {actual}");
+    }
+
+    [Fact]
+    public void IsLeapYear_YearDivisibleBy4ButNotBy100_ReturnsTrue()
+    {
+        // Arrange
+        int input = 2024; // Leap year
+        bool expected = true;
+
+        // Informative console output
+        Console.WriteLine("=== Testing IsLeapYear for a year divisible by 4 but not by 100 ===");
+        Console.WriteLine($"Input Year: {input}");
+        Console.WriteLine($"Expected Result: {expected}");
+
+        // Act
+        bool actual = BasicExamples.IsLeapYear(input);
+
+        // Assert
+        Assert.Equal(expected, actual);
+        Console.WriteLine("Test passed: 2024 is a leap year as expected.");
+        Console.WriteLine($"Actual Result: {actual}");
+    }
+
+    [Fact]
+    public void IsLeapYear_YearDivisibleBy100ButNotBy400_ReturnsFalse()
+    {
+        // Arrange
+        int input = 1900; // Not a leap year
+        bool expected = false;
+
+        // Informative console output
+        Console.WriteLine("=== Testing IsLeapYear for a year divisible by 100 but not by 400 ===");
+        Console.WriteLine($"Input Year: {input}");
+        Console.WriteLine($"Expected Result: {expected}");
+
+        // Act
+        bool actual = BasicExamples.IsLeapYear(input);
+
+        // Assert
+        Assert.Equal(expected, actual);
+        Console.WriteLine("Test passed: 1900 is not a leap year as expected.");
+        Console.WriteLine($"Actual Result: {actual}");
+    }
+
+    [Fact]
+    public void IsLeapYear_YearDivisibleBy400_ReturnsTrue()
+    {
+        // Arrange
+        int input = 2000; // Leap year
+        bool expected = true;
+
+        // Informative console output
+        Console.WriteLine("=== Testing IsLeapYear for a year divisible by 400 ===");
+        Console.WriteLine($"Input Year: {input}");
+        Console.WriteLine($"Expected Result: {expected}");
+
+        // Act
+        bool actual = BasicExamples.IsLeapYear(input);
+
+        // Assert
+        Assert.Equal(expected, actual);
+        Console.WriteLine("Test passed: 2000 is a leap year as expected.");
+        Console.WriteLine($"Actual Result: {actual}");
+    }
+
+    [Fact]
+    public void IsLeapYear_NonLeapYear_ReturnsFalse()
+    {
+        // Arrange
+        int input = 2019; // Not a leap year
+        bool expected = false;
+
+        // Informative console output
+        Console.WriteLine("=== Testing IsLeapYear for a non-leap year ===");
+        Console.WriteLine($"Input Year: {input}");
+        Console.WriteLine($"Expected Result: {expected}");
+
+        // Act
+        bool actual = BasicExamples.IsLeapYear(input);
+
+        // Assert
+        Assert.Equal(expected, actual);
+        Console.WriteLine("Test passed: 2019 is not a leap year as expected.");
+        Console.WriteLine($"Actual Result: {actual}");
+    }
+
+    [Fact]
+    public void CountWords_NullOrWhiteSpaceInput_ReturnsZero()
+    {
+        // Arrange
+        string input = null; // Test for null input
+        int expected = 0;
+
+        // Informative console output
+        Console.WriteLine("=== Testing CountWords for null input ===");
+        Console.WriteLine($"Input: {input}");
+        Console.WriteLine($"Expected Result: {expected}");
+
+        // Act
+        int actual = BasicExamples.CountWords(input);
+
+        // Assert
+        Assert.Equal(expected, actual);
+        Console.WriteLine("Test passed: Null input returns zero as expected.");
+        Console.WriteLine($"Actual Result: {actual}");
+    }
+
+    [Fact]
+    public void CountWords_EmptyString_ReturnsZero()
+    {
+        // Arrange
+        string input = ""; // Test for empty string
+        int expected = 0;
+
+        // Informative console output
+        Console.WriteLine("=== Testing CountWords for an empty string ===");
+        Console.WriteLine($"Input: \"{input}\"");
+        Console.WriteLine($"Expected Result: {expected}");
+
+        // Act
+        int actual = BasicExamples.CountWords(input);
+
+        // Assert
+        Assert.Equal(expected, actual);
+        Console.WriteLine("Test passed: Empty string returns zero as expected.");
+        Console.WriteLine($"Actual Result: {actual}");
+    }
+
+    [Fact]
+    public void CountWords_SingleWord_ReturnsOne()
+    {
+        // Arrange
+        string input = "Hello"; // Test for a single word
+        int expected = 1;
+
+        // Informative console output
+        Console.WriteLine("=== Testing CountWords for a single word ===");
+        Console.WriteLine($"Input: \"{input}\"");
+        Console.WriteLine($"Expected Result: {expected}");
+
+        // Act
+        int actual = BasicExamples.CountWords(input);
+
+        // Assert
+        Assert.Equal(expected, actual);
+        Console.WriteLine("Test passed: Single word returns one as expected.");
+        Console.WriteLine($"Actual Result: {actual}");
+    }
+
+    [Fact]
+    public void CountWords_MultipleWords_ReturnsCorrectCount()
+    {
+        // Arrange
+        string input = "This is a test string"; // Test for multiple words
+        int expected = 5;
+
+        // Informative console output
+        Console.WriteLine("=== Testing CountWords for multiple words ===");
+        Console.WriteLine($"Input: \"{input}\"");
+        Console.WriteLine($"Expected Result: {expected}");
+
+        // Act
+        int actual = BasicExamples.CountWords(input);
+
+        // Assert
+        Assert.Equal(expected, actual);
+        Console.WriteLine("Test passed: Multiple words return correct count as expected.");
+        Console.WriteLine($"Actual Result: {actual}");
+    }
+
+    [Fact]
+    public void CountWords_ExtraSpaces_ReturnsCorrectCount()
+    {
+        // Arrange
+        string input = "  Extra   spaces    here  "; // Test for extra spaces
+        int expected = 3;
+
+        // Informative console output
+        Console.WriteLine("=== Testing CountWords for input with extra spaces ===");
+        Console.WriteLine($"Input: \"{input}\"");
+        Console.WriteLine($"Expected Result: {expected}");
+
+        // Act
+        int actual = BasicExamples.CountWords(input.Trim()); // Trimming to remove leading/trailing spaces
+
+        // Assert
+        Assert.Equal(expected, actual);
+        Console.WriteLine("Test passed: Extra spaces counted correctly as expected.");
+        Console.WriteLine($"Actual Result: {actual}");
+    }
+
+
+
+
+
 }

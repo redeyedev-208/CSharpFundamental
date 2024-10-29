@@ -127,7 +127,7 @@ public class BasicExamples
   // Method to count the number of words in a string
   public static int CountWords(string input)
   {
-    return string.IsNullOrWhiteSpace(input) ? 0 : input.Split(' ').Length;
+    return string.IsNullOrWhiteSpace(input) ? 0 : input.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Length;
   }
 
   //  Method to generate a random number
