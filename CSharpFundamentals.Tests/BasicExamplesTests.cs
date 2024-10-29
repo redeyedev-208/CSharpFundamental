@@ -814,7 +814,7 @@ public class BasicExamplesTests
     public void CountWords_NullOrWhiteSpaceInput_ReturnsZero()
     {
         // Arrange
-        string input = null; // Test for null input
+        string? input = null; // Test for null input
         int expected = 0;
 
         // Informative console output
@@ -915,8 +915,105 @@ public class BasicExamplesTests
         Console.WriteLine($"Actual Result: {actual}");
     }
 
+    [Fact]
+    public void GenerateRandomNumber_WithinRange_ReturnsNumberInRange()
+    {
+        // Arrange
+        int min = 1;
+        int max = 100;
+        int iterations = 1000; // Number of times to test the randomness
+        bool isInRange = true;
 
+        // Informative console output
+        Console.WriteLine("=== Testing GenerateRandomNumber within specified range ===");
+        Console.WriteLine($"Min: {min}, Max: {max}, Iterations: {iterations}");
 
+        // Act
+        for (int i = 0; i < iterations; i++)
+        {
+            int randomNumber = BasicExamples.GenerateRandomNumber(min, max);
+            if (randomNumber < min || randomNumber >= max)
+            {
+                isInRange = false;
+                Console.WriteLine($"Random number {randomNumber} is out of range on iteration {i + 1}.");
+                break;
+            }
+        }
 
+        // Assert
+        Assert.True(isInRange, "Generated random number was outside the specified range.");
+        Console.WriteLine("All generated numbers were within the specified range.");
+    }
 
+    [Fact]
+    public void SumOfDigits_PositiveNumber_ReturnsCorrectSum()
+    {
+        // Arrange
+        int number = 1234;
+
+        // Informative console output
+        Console.WriteLine("=== Testing SumOfDigits with a positive number ===");
+        Console.WriteLine($"Number: {number}");
+
+        // Act
+        int result = BasicExamples.SumOfDigits(number);
+
+        // Assert
+        Assert.Equal(10, result); // 1 + 2 + 3 + 4 = 10
+        Console.WriteLine($"Expected: 10, Result: {result}. Test passed!\n");
+    }
+
+    [Fact]
+    public void SumOfDigits_NegativeNumber_ReturnsCorrectSum()
+    {
+        // Arrange
+        int number = -567;
+
+        // Informative console output
+        Console.WriteLine("=== Testing SumOfDigits with a negative number ===");
+        Console.WriteLine($"Number: {number}");
+
+        // Act
+        int result = BasicExamples.SumOfDigits(number);
+
+        // Assert
+        Assert.Equal(18, result); // 5 + 6 + 7 = 18
+        Console.WriteLine($"Expected: 18, Result: {result}. Test passed!\n");
+    }
+
+    [Fact]
+    public void SumOfDigits_Zero_ReturnsZero()
+    {
+        // Arrange
+        int number = 0;
+
+        // Informative console output
+        Console.WriteLine("=== Testing SumOfDigits with zero ===");
+        Console.WriteLine($"Number: {number}");
+
+        // Act
+        int result = BasicExamples.SumOfDigits(number);
+
+        // Assert
+        Assert.Equal(0, result); // Sum of digits in 0 is 0
+        Console.WriteLine($"Expected: 0, Result: {result}. Test passed!\n");
+    }
+
+    [Fact]
+    public void SumOfDigits_SingleDigit_ReturnsSameNumber()
+    {
+        // Arrange
+        int number = 9;
+
+        // Informative console output
+        Console.WriteLine("=== Testing SumOfDigits with a single-digit number ===");
+        Console.WriteLine($"Number: {number}");
+
+        // Act
+        int result = BasicExamples.SumOfDigits(number);
+
+        // Assert
+        Assert.Equal(9, result); // Sum of digits in 9 is 9
+        Console.WriteLine($"Expected: 9, Result: {result}. Test passed!\n");
+    }
 }

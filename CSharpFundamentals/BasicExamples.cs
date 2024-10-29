@@ -125,22 +125,23 @@ public class BasicExamples
   }
 
   // Method to count the number of words in a string
-  public static int CountWords(string input)
+  public static int CountWords(string? input)
   {
     return string.IsNullOrWhiteSpace(input) ? 0 : input.Split(new[] { ' ' }, StringSplitOptions.RemoveEmptyEntries).Length;
   }
 
-  //  Method to generate a random number
-  public static int GenerateRandomNumber(int min, int max)
+  // Method to generate a random number
+  public static int GenerateRandomNumber(int min, int max, int? seed = null)
   {
-    Random random = new();
+    Random random = seed.HasValue ? new Random(seed.Value) : new Random();
     return random.Next(min, max);
   }
 
   // Method to calculate the sum of digits in a number
   public static int SumOfDigits(int number)
   {
+    // Use absolute value to handle negative numbers
+    number = Math.Abs(number);
     return number.ToString().Sum(c => c - '0');
   }
-
 }
