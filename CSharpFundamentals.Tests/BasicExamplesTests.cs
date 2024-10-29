@@ -209,4 +209,167 @@ public class BasicExamplesTests
         Console.WriteLine("Test passed: ArgumentNullException was thrown as expected.");
         Console.WriteLine($"Exception message: {exception.Message}");
     }
+
+    [Fact]
+    public void CountVowels_WithVowelsInInput_ReturnsCorrectCount()
+    {
+        // Arrange
+        string input = "Hello World";
+        int expectedCount = 3;
+
+        // Informative console output
+        Console.WriteLine("=== Testing CountVowels with a string containing vowels ===");
+        Console.WriteLine($"Input String: \"{input}\"");
+        Console.WriteLine($"Expected Vowel Count: {expectedCount}");
+
+        // Act
+        int actualCount = BasicExamples.CountVowels(input);
+
+        // Assert
+        Assert.Equal(expectedCount, actualCount);
+        Console.WriteLine("Test passed: Vowel count is correct.");
+        Console.WriteLine($"Actual Vowel Count: {actualCount}");
+    }
+
+    [Fact]
+    public void CountVowels_EmptyString_ReturnsZero()
+    {
+        // Arrange
+        string input = "";
+        int expectedCount = 0;
+
+        // Informative console output
+        Console.WriteLine("=== Testing CountVowels with an empty string ===");
+        Console.WriteLine("Input String is empty.");
+        Console.WriteLine($"Expected Vowel Count: {expectedCount}");
+
+        // Act
+        int actualCount = BasicExamples.CountVowels(input);
+
+        // Assert
+        Assert.Equal(expectedCount, actualCount);
+        Console.WriteLine("Test passed: Vowel count is zero as expected.");
+    }
+
+    [Fact]
+    public void CountVowels_NoVowelsInInput_ReturnsZero()
+    {
+        // Arrange
+        string input = "bcdfghjklmnpqrstvwxyz";
+        int expectedCount = 0;
+
+        // Informative console output
+        Console.WriteLine("=== Testing CountVowels with a string containing no vowels ===");
+        Console.WriteLine($"Input String: \"{input}\"");
+        Console.WriteLine($"Expected Vowel Count: {expectedCount}");
+
+        // Act
+        int actualCount = BasicExamples.CountVowels(input);
+
+        // Assert
+        Assert.Equal(expectedCount, actualCount);
+        Console.WriteLine("Test passed: Vowel count is zero as expected.");
+    }
+
+    [Fact]
+    public void CountVowels_AllVowelsInInput_ReturnsCorrectCount()
+    {
+        // Arrange
+        string input = "aeiouAEIOU";
+        int expectedCount = 10;
+
+        // Informative console output
+        Console.WriteLine("=== Testing CountVowels with a string of all vowels ===");
+        Console.WriteLine($"Input String: \"{input}\"");
+        Console.WriteLine($"Expected Vowel Count: {expectedCount}");
+
+        // Act
+        int actualCount = BasicExamples.CountVowels(input);
+
+        // Assert
+        Assert.Equal(expectedCount, actualCount);
+        Console.WriteLine("Test passed: Vowel count is correct.");
+        Console.WriteLine($"Actual Vowel Count: {actualCount}");
+    }
+
+    [Fact]
+    public void RemoveDuplicates_WithDuplicates_ReturnsArrayWithoutDuplicates()
+    {
+        // Arrange
+        int[] input = { 1, 2, 2, 3, 3, 3, 4 };
+        int[] expectedOutput = { 1, 2, 3, 4 };
+
+        // Informative console output
+        Console.WriteLine("=== Testing RemoveDuplicates with an array containing duplicates ===");
+        Console.WriteLine($"Input Array: {string.Join(", ", input)}");
+        Console.WriteLine($"Expected Output: {string.Join(", ", expectedOutput)}");
+
+        // Act
+        int[] actualOutput = BasicExamples.RemoveDuplicates(input);
+
+        // Assert
+        Assert.Equal(expectedOutput, actualOutput);
+        Console.WriteLine("Test passed: Duplicates removed as expected.");
+        Console.WriteLine($"Actual Output: {string.Join(", ", actualOutput)}");
+    }
+
+    [Fact]
+    public void RemoveDuplicates_EmptyArray_ReturnsEmptyArray()
+    {
+        // Arrange
+        int[] input = { };
+        int[] expectedOutput = { };
+
+        // Informative console output
+        Console.WriteLine("=== Testing RemoveDuplicates with an empty array ===");
+        Console.WriteLine("Input Array is empty.");
+        Console.WriteLine("Expected Output is an empty array.");
+
+        // Act
+        int[] actualOutput = BasicExamples.RemoveDuplicates(input);
+
+        // Assert
+        Assert.Equal(expectedOutput, actualOutput);
+        Console.WriteLine("Test passed: Returned an empty array as expected.");
+    }
+
+    [Fact]
+    public void RemoveDuplicates_NoDuplicates_ReturnsSameArray()
+    {
+        // Arrange
+        int[] input = { 1, 2, 3, 4, 5 };
+        int[] expectedOutput = { 1, 2, 3, 4, 5 };
+
+        // Informative console output
+        Console.WriteLine("=== Testing RemoveDuplicates with an array containing no duplicates ===");
+        Console.WriteLine($"Input Array: {string.Join(", ", input)}");
+        Console.WriteLine($"Expected Output: {string.Join(", ", expectedOutput)}");
+
+        // Act
+        int[] actualOutput = BasicExamples.RemoveDuplicates(input);
+
+        // Assert
+        Assert.Equal(expectedOutput, actualOutput);
+        Console.WriteLine("Test passed: No duplicates found, array remains unchanged.");
+    }
+
+    [Fact]
+    public void RemoveDuplicates_AllDuplicates_ReturnsSingleElementArray()
+    {
+        // Arrange
+        int[] input = { 7, 7, 7, 7, 7 };
+        int[] expectedOutput = { 7 };
+
+        // Informative console output
+        Console.WriteLine("=== Testing RemoveDuplicates with an array of all identical elements ===");
+        Console.WriteLine($"Input Array: {string.Join(", ", input)}");
+        Console.WriteLine($"Expected Output: {string.Join(", ", expectedOutput)}");
+
+        // Act
+        int[] actualOutput = BasicExamples.RemoveDuplicates(input);
+
+        // Assert
+        Assert.Equal(expectedOutput, actualOutput);
+        Console.WriteLine("Test passed: All duplicates removed, only one instance remains.");
+    }
 }
