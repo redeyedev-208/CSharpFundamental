@@ -38,4 +38,44 @@ public class BasicExamplesTests
         Console.WriteLine("Test passed: ArgumentNullException was thrown as expected.");
         Console.WriteLine($"Exception message: {exception.Message}");
     }
+
+    [Fact]
+    public void IsPalindrome_ReturnsTrue_ForPalindrome()
+    {
+        // Arrange
+        string input = "Racecar";
+        bool expected = true;
+
+        // Informative console output 
+        Console.WriteLine("=== Testing IsPalindrom ===");
+        Console.WriteLine($"Input: '{input}' | Expected Output: {expected}");
+
+        // Act
+        bool result = BasicExamples.IsPalindrome(input);
+
+        // Assert
+        Assert.Equal(expected, result);
+        Console.WriteLine($"Actual Output: {result}");
+        Console.WriteLine("Test passed: The output matches the expected value.");
+    }
+
+    [Fact]
+    public void IsPalindrome_ReturnsFalse_ForNonPalindrome()
+    {
+        // Arrange
+        string input = "Hello";
+        bool expected = false;
+
+        // Informative console output
+        Console.WriteLine("=== Testing IsPalindrome ===");
+        Console.WriteLine($"Input: '{input}' | Expected Output: {expected}");
+
+        // Act
+        bool result = BasicExamples.IsPalindrome(input);
+
+        // Assert
+        Assert.Equal(expected, result);
+        Console.WriteLine($"Actual Output: {result}");
+        Console.WriteLine("Test passed: The output matches the expected value.");
+    }
 }

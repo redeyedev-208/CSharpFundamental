@@ -19,4 +19,18 @@ public class BasicExamples
     Console.WriteLine($"Reversed: {result}");
     return result;
   }
+
+  // Method to check if a string is a palindrome
+  public static bool IsPalindrome(string? input)
+  {
+    ArgumentNullException.ThrowIfNull(input);
+    Console.WriteLine("=== Palindrome Check ===");
+    Console.WriteLine($"Input: {input}");
+
+    string reversed = ReverseString(input);
+    bool isPalindrome = input.Equals(reversed, StringComparison.OrdinalIgnoreCase);
+
+    Console.WriteLine($"Is Palindrom: {isPalindrome}");
+    return isPalindrome;
+  }
 }
