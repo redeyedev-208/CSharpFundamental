@@ -1,10 +1,9 @@
-using CSharpFundamentals;
-using Xunit;
-
 namespace CSharpFundamentals.Tests;
 
 public class BasicExamplesTests
 {
+    // To run tests with more information we can use the following command:
+    // dotnet test --logger "console;verbosity=detailed"
     [Fact]
     public void ReverseString_ReturnsReversedString()
     {
@@ -77,5 +76,37 @@ public class BasicExamplesTests
         Assert.Equal(expected, result);
         Console.WriteLine($"Actual Output: {result}");
         Console.WriteLine("Test passed: The output matches the expected value.");
+    }
+
+    [Fact]
+    public void GenerateFibonacci_ReturnsCorrectSequence()
+    {
+        // Arrange
+        int count = 5;
+        int[] expected = { 0, 1, 1, 2, 3 };
+
+        // Informative console output
+        Console.WriteLine("=== Testing GenerateFibonacci ===");
+        Console.WriteLine($"Count: {count} | Expected Output: {string.Join(",", expected)}");
+
+        // Act
+        int[] result = BasicExamples.GenerateFibonacci(count);
+
+        // Assert
+        Assert.Equal(expected, result);
+        Console.WriteLine($"Actual Output: {string.Join(",", result)}");
+        Console.WriteLine("Test passed: The output matches the expected value.");
+    }
+
+    [Fact]
+    public void GenerateFibonacci_ThrowsArgumentException_WhenCountIsZero()
+    {
+        // Informative console output
+        Console.WriteLine("=== Testing Generate Fibonacci for count = 0 ===");
+
+        // Act & Assert
+        var exception = Assert.Throws<ArgumentException>(() => BasicExamples.GenerateFibonacci(0));
+        Console.WriteLine("Test passed: ArgumentException was thrown as expected.");
+        Console.WriteLine($"Exception message: {exception.Message}");
     }
 }
