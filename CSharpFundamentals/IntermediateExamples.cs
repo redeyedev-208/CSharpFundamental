@@ -270,7 +270,6 @@ namespace CSharpFundamentals
             }
         }
 
-
         // Example for the 0/1 Knapsack Problem
         public static int Knapsack(int[] weights, int[] values, int capacity)
         {

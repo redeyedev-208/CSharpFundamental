@@ -510,7 +510,7 @@ namespace CSharpFundamentals.Tests
             int expected = 30; // 1^2 + 2^2 + 3^2 + 4^2 = 30
 
             // Act
-            int result = IntermediateExamples.SumOfSquares(input); // Reference the method from MathUtilities
+            int result = IntermediateExamples.SumOfSquares(input);
 
             // Assert
             Assert.Equal(expected, result);
@@ -542,7 +542,7 @@ namespace CSharpFundamentals.Tests
             int expected = 30; // (-1)^2 + (-2)^2 + (-3)^2 + (-4)^2 = 30
 
             // Act
-            int result = IntermediateExamples.SumOfSquares(input); // Reference the method from MathUtilities
+            int result = IntermediateExamples.SumOfSquares(input);
 
             // Assert
             Assert.Equal(expected, result);
@@ -562,7 +562,7 @@ namespace CSharpFundamentals.Tests
             int expected = 0; // No elements to square
 
             // Act
-            int result = IntermediateExamples.SumOfSquares(input); // Reference the method from MathUtilities
+            int result = IntermediateExamples.SumOfSquares(input);
 
             // Assert
             Assert.Equal(expected, result);
@@ -1586,7 +1586,7 @@ namespace CSharpFundamentals.Tests
         [Fact]
         public void Push_AddsElementToStack()
         {
-            var stack = new IntermediateExamples.Stack<int>(); // Full namespace reference
+            var stack = new IntermediateExamples.Stack<int>();
             stack.Push(10);
 
             Assert.False(stack.IsEmpty());
@@ -1605,7 +1605,7 @@ namespace CSharpFundamentals.Tests
         [Fact]
         public void Pop_RemovesAndReturnsLastElement()
         {
-            var stack = new IntermediateExamples.Stack<int>(); // Full namespace reference
+            var stack = new IntermediateExamples.Stack<int>();
             stack.Push(10);
             stack.Push(20);
 
@@ -1628,7 +1628,7 @@ namespace CSharpFundamentals.Tests
         [Fact]
         public void Pop_EmptyStack_ThrowsInvalidOperationException()
         {
-            var stack = new IntermediateExamples.Stack<int>(); // Full namespace reference
+            var stack = new IntermediateExamples.Stack<int>();
 
             var exception = Assert.Throws<InvalidOperationException>(() => stack.Pop());
 
@@ -1646,7 +1646,7 @@ namespace CSharpFundamentals.Tests
         [Fact]
         public void IsEmpty_OnNewStack_ReturnsTrue()
         {
-            var stack = new IntermediateExamples.Stack<int>(); // Full namespace reference
+            var stack = new IntermediateExamples.Stack<int>();
 
             Assert.True(stack.IsEmpty()); // Using IsEmpty method
 
@@ -1664,7 +1664,7 @@ namespace CSharpFundamentals.Tests
         [Fact]
         public void IsEmpty_AfterPushAndPop_ReturnsTrue()
         {
-            var stack = new IntermediateExamples.Stack<int>(); // Full namespace reference
+            var stack = new IntermediateExamples.Stack<int>();
             stack.Push(10);
             stack.Pop();
 
@@ -1685,7 +1685,7 @@ namespace CSharpFundamentals.Tests
         [Fact]
         public void Pop_OnStackWithMultipleElements_RemovesElementsInLIFOOrder()
         {
-            var stack = new IntermediateExamples.Stack<int>(); // Full namespace reference
+            var stack = new IntermediateExamples.Stack<int>();
             stack.Push(10);
             stack.Push(20);
             stack.Push(30);
@@ -2180,6 +2180,110 @@ namespace CSharpFundamentals.Tests
             Console.WriteLine("==============================");
 
             Assert.Empty(visited); // The visited set should remain empty
+        }
+
+        [Fact]
+        public void Knapsack_Test()
+        {
+            // Arrange
+            int[] weights = { 1, 2, 3 };
+            int[] values = { 10, 15, 40 };
+            int capacity = 6;
+            int expected = 65;
+
+            // Act
+            int result = IntermediateExamples.Knapsack(weights, values, capacity);
+
+            // Assert
+            Console.WriteLine("Test: Knapsack_Test");
+            Console.WriteLine("Input Weights: " + string.Join(", ", weights));
+            Console.WriteLine("Input Values: " + string.Join(", ", values));
+            Console.WriteLine("Knapsack Capacity: " + capacity);
+            Console.WriteLine("Expected Output: " + expected);
+            Console.WriteLine("Actual Output: " + result);
+            Console.WriteLine("Test Passed: " + (result == expected ? "Yes" : "No"));
+            Console.WriteLine("Time Complexity Analysis: O(n * capacity), where n is the number of items.");
+            Console.WriteLine("==============================");
+
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void Knapsack_NoItems_ReturnsZero()
+        {
+            // Arrange
+            int[] weights = { };
+            int[] values = { };
+            int capacity = 10;
+            int expected = 0;
+
+            // Act
+            int result = IntermediateExamples.Knapsack(weights, values, capacity);
+
+            // Assert
+            Console.WriteLine("Test: Knapsack_NoItems_ReturnsZero");
+            Console.WriteLine("Input Weights: " + string.Join(", ", weights));
+            Console.WriteLine("Input Values: " + string.Join(", ", values));
+            Console.WriteLine("Knapsack Capacity: " + capacity);
+            Console.WriteLine("Expected Output: " + expected);
+            Console.WriteLine("Actual Output: " + result);
+            Console.WriteLine("Test Passed: " + (result == expected ? "Yes" : "No"));
+            Console.WriteLine("Time Complexity Analysis: O(n * capacity), as the algorithm still creates a DP table.");
+            Console.WriteLine("==============================");
+
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void Knapsack_CapacityZero_ReturnsZero()
+        {
+            // Arrange
+            int[] weights = { 1, 2, 3 };
+            int[] values = { 10, 15, 40 };
+            int capacity = 0;
+            int expected = 0;
+
+            // Act
+            int result = IntermediateExamples.Knapsack(weights, values, capacity);
+
+            // Assert
+            Console.WriteLine("Test: Knapsack_CapacityZero_ReturnsZero");
+            Console.WriteLine("Input Weights: " + string.Join(", ", weights));
+            Console.WriteLine("Input Values: " + string.Join(", ", values));
+            Console.WriteLine("Knapsack Capacity: " + capacity);
+            Console.WriteLine("Expected Output: " + expected);
+            Console.WriteLine("Actual Output: " + result);
+            Console.WriteLine("Test Passed: " + (result == expected ? "Yes" : "No"));
+            Console.WriteLine("Time Complexity Analysis: O(n * capacity), as the algorithm still creates a DP table.");
+            Console.WriteLine("==============================");
+
+            Assert.Equal(expected, result);
+        }
+
+        [Fact]
+        public void Knapsack_AllItemsTooHeavy_ReturnsZero()
+        {
+            // Arrange
+            int[] weights = { 5, 6, 7 };
+            int[] values = { 10, 15, 40 };
+            int capacity = 4;
+            int expected = 0;
+
+            // Act
+            int result = IntermediateExamples.Knapsack(weights, values, capacity);
+
+            // Assert
+            Console.WriteLine("Test: Knapsack_AllItemsTooHeavy_ReturnsZero");
+            Console.WriteLine("Input Weights: " + string.Join(", ", weights));
+            Console.WriteLine("Input Values: " + string.Join(", ", values));
+            Console.WriteLine("Knapsack Capacity: " + capacity);
+            Console.WriteLine("Expected Output: " + expected);
+            Console.WriteLine("Actual Output: " + result);
+            Console.WriteLine("Test Passed: " + (result == expected ? "Yes" : "No"));
+            Console.WriteLine("Time Complexity Analysis: O(n * capacity), as the algorithm still creates a DP table.");
+            Console.WriteLine("==============================");
+
+            Assert.Equal(expected, result);
         }
     }
 }
