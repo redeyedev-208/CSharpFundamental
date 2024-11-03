@@ -3,7 +3,9 @@ namespace CSharpFundamentals.Tests;
 public class BasicExamplesTests
 {
     // To run tests with more information we can use the following command:
-    // dotnet test --logger "console;verbosity=detailed"
+    // dotnet test --logger "console;verbosity=detailed" which runs all of the tests
+    // If we want to only run tests in this file we do something like this below
+    // dotnet test --filter "FullyQualifiedName~CSharpFundamentals.Tests.BasicExamplesTests" --logger "console;verbosity=detailed"
     // This below shows how to run a single test to get what is needed if it is failing
     // dotnet test --logger "console;verbosity=detailed" --filter "FullyQualifiedName~CSharpFundamentals.Tests.BasicExamplesTests.IsAllDigits_AllDigits_ReturnsTrue"
     [Fact]
