@@ -1,6 +1,10 @@
 using System;
 using Xunit;
 
+// To run tests in this test file we do the following shown below and to run a single test we just add a "." with the test name and are good to go
+// dotnet test --filter "FullyQualifiedName~CSharpFundamentals.Tests.CoffeeAndDotnetTests.TestNameGoesHere" --logger "console;verbosity=detailed"  
+// dotnet test --filter "FullyQualifiedName~CSharpFundamentals.Tests.CoffeeAndDotnetTests" --logger "console;verbosity=detailed"  
+
 namespace CSharpFundamentals.Tests
 {
     public class CoffeeAndDotnetTests

@@ -66,5 +66,26 @@ namespace CSharpFundamentals
             return "The 'out' keyword is like offering a second cup of coffee to someone without knowing if they'll want it at first. " +
                    "It allows you to return multiple outputs, just like handing out multiple cups to a customer.\n";
         }
+
+        // Question 28: What is the need of Delegates?
+        public string Delegates()
+        {
+            return "Delegates are like pointers to a function, allowing us to use callbacks to communicate between threads, " +
+                   "like passing a brewing task to another coffee maker for a specific job.\n";
+        }
+
+        // Question 29: What are events?
+        public string Events()
+        {
+            return "Events are encapsulations over delegates. They are like a coffee shop manager who listens to the needs of customers " +
+                   "and triggers specific actions (brewing coffee) based on the customer's request.\n";
+        }
+
+        // Question 30: What's the difference between Abstract class and Interface?
+        public string AbstractVsInterface()
+        {
+            return "An abstract class is like a half-defined coffee recipe where you can customize some steps, while an interface is a contract " +
+                   "that defines what must be done but not how (like a menu of available coffee drinks that must be followed).\n";
+        }
     }
 }
